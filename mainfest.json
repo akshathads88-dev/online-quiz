@@ -1,0 +1,10 @@
+{
+  "name": "Online Quiz App",
+  "short_name": "Quiz App",
+  "description": "Online Quiz System for students",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait"
+}

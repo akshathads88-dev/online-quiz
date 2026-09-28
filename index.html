@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Online Quiz App</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#667eea">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- HOME / LOGIN PAGE -->
+
+    <div id="login">
+
+        <div class="app-logo">
+            🧠
+        </div>
+
+        <h1>QuizMaster</h1>
+
+        <p class="welcome">
+            Test your knowledge and learn something new!
+        </p>
+
+
+        <div class="instructions">
+
+            <h3>📋 How to Play</h3>
+
+            <p>👤 Enter your Name & Roll Number</p>
+
+            <p>📚 Select a Subject</p>
+
+            <p>🎯 Select Difficulty</p>
+
+            <p>❓ Answer the questions</p>
+
+            <p>🏆 Check your final score</p>
+
+        </div>
+
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Enter your Name"
+        >
+
+
+        <input
+            type="text"
+            id="rollNumber"
+            placeholder="Enter your Roll Number"
+        >
+
+
+        <select id="subject">
+
+            <option value="">
+                Loading Subjects...
+            </option>
+
+        </select>
+
+
+        <select id="difficulty">
+
+            <option value="">
+                Select Difficulty
+            </option>
+
+            <option value="easy">
+                🟢 Easy
+            </option>
+
+            <option value="medium">
+                🟡 Medium
+            </option>
+
+            <option value="hard">
+                🔴 Hard
+            </option>
+
+        </select>
+
+
+        <button id="startBtn" class="start-button">
+
+            🚀 Start Quiz
+
+        </button>
+
+    </div>
+
+
+    <!-- QUIZ PAGE -->
+
+    <div id="quizArea" style="display:none;">
+
+        <div class="quiz-header">
+
+            <h1>🧠 QuizMaster</h1>
+
+            <p id="studentInfo"></p>
+
+        </div>
+
+
+        <div class="quiz-details">
+
+            <span id="subjectInfo"></span>
+
+            <span id="difficultyInfo"></span>
+
+        </div>
+
+
+        <div id="timer">
+
+            ⏱️ Time Left: 60 seconds
+
+        </div>
+
+
+        <div class="progress-section">
+
+            <p id="questionNumber"></p>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <h2 id="question"></h2>
+
+        </div>
+
+
+        <div id="options"></div>
+
+
+        <div class="navigation">
+
+            <button id="previousBtn">
+                ← Previous
+            </button>
+
+            <button id="nextBtn">
+                Next →
+            </button>
+
+        </div>
+
+
+        <button id="submitBtn">
+
+            ✅ Submit Quiz
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+<!-- PWA Service Worker -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function () {
+
+        navigator.serviceWorker.register(
+            "service-worker.js"
+        )
+        .then(function () {
+
+            console.log(
+                "Service Worker Registered"
+            );
+
+        })
+        .catch(function (error) {
+
+            console.log(
+                "Service Worker Error:",
+                error
+            );
+
+        });
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
+
